@@ -10,8 +10,8 @@ const path = require('path');
 const { logReceivedMessage, logAppStateFound } = require('./OctoCore/log');
 require('./commands-settings');
 const { getPrefixList, processCommand } = require('./OctoCore/main');
-const filename = 'nukos.json';
-const filePath = path.join(__dirname, 'krukis.txt');
+const filename = 'data.json';
+const filePath = path.join(__dirname, 'cookie.json');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -136,7 +136,7 @@ app.get('/uids', (req, res) => {
     res.json({ message: 'List of registered UIDs', uids: data.ChatWithAiOfficialUserIDs });
 });
 //Connection Bot (fs )
-login({ appState: JSON.parse(fs.readFileSync("./cookie.json")) }, async (err, api) => {
+login({ appState: JSON.parse(fs.readFileSync("cookie.json")) }, async (err, api) => {
       try {
         if (err) throw err;
 
